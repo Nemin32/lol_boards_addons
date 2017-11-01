@@ -1,2 +1,26 @@
 # lol_boards_addons
-Addons which make using the LoL boards easier
+Ezen az oldalon találhatjátok a kiegészítőim.
+
+## Telepítési útmutató:
+1. Telepítsd az alapbővítményt: [link](https://tampermonkey.net/)
+2. Kattints a számodra tetsző kiegészítőre.
+3. Kattints a Raw gombra.
+4. Install
+
+### commentpoints.user.js - Komment Pontok
+Kiírja a profil alatt a kommentek pontszámát.
+
+### topicpoints.user.js - Poszt Pontok
+Kiírja a profil alatt a posztok pontszámát.
+
+### notification.user.js - Értesítések
+Ha üzenetet kapsz, az oldal értesít.
+
+### ranks.user.js - Összesített Pontok
+Minden kommentelő mellé odaírja, hogy hány pontja van.
+
+### reportbutton.user.js - Report Gomb
+Kicseréli a "Jelentés" feliratot egy szép nagy hívogató piros gombra.
+
+### signiture.user.js - Aláírás
+Segítségével hozzáadhatsz egy aláírást a kommentjeid alá.
