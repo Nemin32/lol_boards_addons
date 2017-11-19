@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         LoL Boards UpsDowns
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.3
 // @description  Shows how many upvotes and downvotes a topic has
 // @author       Nemin
 // @match        https://boards.eune.leagueoflegends.com/hu/*
@@ -40,6 +40,8 @@ function hook() {
 (function() {
     'use strict';
 
-    updatePoints();
-    hook();
+    setTimeout(() => {
+        updatePoints();
+        hook();
+    }, 2000);
 })();
