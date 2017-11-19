@@ -9,24 +9,22 @@
 // ==/UserScript==
 
 function setPoints(d) {
-    let d_id = d.getAttribute("data-discussion-id");
-    let a_id = d.getAttribute("data-application-id");
+    let up = d.getAttribute("data-apollo-up-votes");
+    let down = d.getAttribute("data-apollo-down-votes");
 
-    fetch("https://boards.eune.leagueoflegends.com/api/"+ a_id + "/discussions/" + d_id).then(a => a.json()).then(b => {
-        let ups = b["discussion"]["upVotes"];
-        let down = b["discussion"]["downVotes"];
+    let par = document.createElement("p");
+    par.innerText = "(" + up + ((Number(down) == 0) ? ", " : ", -") + down + ")";
 
-        let par = document.createElement("p");
-        par.innerText = "(" + ups + ((Number(down) == 0) ? ", " : ", -") + down + ")";
+    console.log(par.innerText);
 
-        d.querySelector(".riot-voting").appendChild(par);
-    });
+    d.querySelector(".riot-voting").appendChild(par);
 }
 
 (function() {
     'use strict';
 
-    let discs = document.querySelectorAll(".discussion-list-item");
+    let discs = document.querySelectorAll(".riot-apollo.voting, .voting.small-1.columns.riot-apollo");
+
 
     for (let i = 0; i < discs.length; i++) {
         setPoints(discs[i]);
