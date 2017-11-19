@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         LoL Boards UpsDowns
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  Shows how many upvotes and downvotes a topic has
 // @author       Nemin
 // @match        https://boards.eune.leagueoflegends.com/hu/*
@@ -15,18 +15,31 @@ function setPoints(d) {
     let par = document.createElement("p");
     par.innerText = "(" + up + ((Number(down) == 0) ? ", " : ", -") + down + ")";
 
-    console.log(par.innerText);
-
     d.querySelector(".riot-voting").appendChild(par);
+}
+
+let didAlready = 0;
+
+function updatePoints() {
+    let points = document.querySelectorAll(".riot-apollo.voting, .voting.small-1.columns.riot-apollo");
+    for (let np = didAlready; np < points.length; np++) {
+        setPoints(points[np]);
+    }
+    didAlready = points.length;
+}
+
+function hook() {
+    try {
+        document.querySelector(".show-more").addEventListener("click", (function() {setTimeout(updatePoints, 4000);}));
+        console.log("[UpsDowns] Button found");
+    } catch(e) {
+        console.log("[UpsDowns] Button not found.");
+    }
 }
 
 (function() {
     'use strict';
 
-    let discs = document.querySelectorAll(".riot-apollo.voting, .voting.small-1.columns.riot-apollo");
-
-
-    for (let i = 0; i < discs.length; i++) {
-        setPoints(discs[i]);
-    }
+    updatePoints();
+    hook();
 })();
