@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         LoL Boards UpsDowns
 // @namespace    http://tampermonkey.net/
-// @version      0.3
+// @version      0.4
 // @description  Shows how many upvotes and downvotes a topic has
 // @author       Nemin
 // @match        https://boards.eune.leagueoflegends.com/hu/*
@@ -13,7 +13,7 @@ function setPoints(d) {
     let down = d.getAttribute("data-apollo-down-votes");
 
     let par = document.createElement("p");
-    par.innerText = "(" + up + ((Number(down) == 0) ? ", " : ", -") + down + ")";
+    par.innerText = "[" + up + ((Number(down) == 0) ? ", " : ", -") + down + "]";
 
     d.querySelector(".riot-voting").appendChild(par);
 }
