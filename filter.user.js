@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         LoL Boards Filter
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  Filter out some unnecessary categories
 // @author       Nemin
 // @match        https://boards.eune.leagueoflegends.com/hu/*
@@ -30,7 +30,6 @@ function handle(cat) {
     let a = 0;
     while (a < discs.length) {
         if (cat.indexOf(discs[a].querySelector(".discussion-footer").querySelectorAll("a")[1].innerText) > -1) {
-            console.log("miatosz");
             discs[a].remove();
         }
         a++;
