@@ -14,6 +14,9 @@ Ezen az oldalon találhatjátok a kiegészítőim.
 ### commentpoints.user.js - Komment Pontok
 Kiírja a profil alatt a kommentek pontszámát.
 
+### filter.user.js - Kategória filter
+Nem tetszik egy kategória? Eleged van a csapatkeresős topicokból? Íme a megoldás. Csak pipáld be, ami nem tetszik és többé nem fog zavarni. 
+
 ### topicpoints.user.js - Poszt Pontok
 Kiírja a profil alatt a posztok pontszámát.
 
