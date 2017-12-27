@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         LoL Boards UpsDowns
 // @namespace    http://tampermonkey.net/
-// @version      0.4
+// @version      0.5
 // @description  Shows how many upvotes and downvotes a topic has
 // @author       Nemin
 // @match        https://boards.eune.leagueoflegends.com/hu/*
@@ -26,6 +26,21 @@ function updatePoints() {
         setPoints(points[np]);
     }
     didAlready = points.length;
+    
+    document.querySelectorAll(".total-votes").forEach(f => {
+        const votes = Number(f.innerText);
+        if (votes <= -8) {
+            f.style = "color: #5e0c0c;";
+        } else if (votes < 0) {
+            f.style = "color: #ad1616;";
+        } else if (votes >= 8) {
+            f.style = "color: #0ece0e;";
+        } else if (votes > 2) {
+            f.style = "color: #16ad16;";
+        } else {
+            f.style = "color: lightblue;";
+        }
+    });
 }
 
 function hook() {
