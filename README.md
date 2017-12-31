@@ -36,7 +36,7 @@ Segítségével hozzáadhatsz egy aláírást a kommentjeid alá.
 Megmutatja egy post hány fel és leszavazást kapott. Ezenkívül pontok szerint színezi a posztokat.
 Kétféle színpaletta van benne, a kódban lehet kiválasztani, melyiket akarod használni.
 
-####Alternatív szinséma:
+#### Alternatív szinséma:
 Tampermonkey logo -> Dashboard -> LoL Boards UpsDowns -> Lesz egy barna sor, ami leírja pontosan mit is kell csinálnod.
 
 ### opgg.user.js - OP.GG Gomb
