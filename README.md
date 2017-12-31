@@ -33,7 +33,11 @@ Kicseréli a "Jelentés" feliratot egy szép nagy hívogató piros gombra.
 Segítségével hozzáadhatsz egy aláírást a kommentjeid alá.
 
 ### upsdowns.user.js - Fel és Lepontozások
-Megmutatja egy post hány fel és leszavazást kapott.
+Megmutatja egy post hány fel és leszavazást kapott. Ezenkívül pontok szerint színezi a posztokat.
+Kétféle színpaletta van benne, a kódban lehet kiválasztani, melyiket akarod használni.
+
+####Alternatív szinséma:
+Tampermonkey logo -> Dashboard -> LoL Boards UpsDowns -> Lesz egy barna sor, ami leírja pontosan mit is kell csinálnod.
 
 ### opgg.user.js - OP.GG Gomb
 A kommentelők mellé tesz egy gombot, melyre kattintva rögtön behozhatjuk az OP.GG-s profilukat.
