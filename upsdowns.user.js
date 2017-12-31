@@ -27,20 +27,38 @@ function updatePoints() {
     }
     didAlready = points.length;
     
-    document.querySelectorAll(".total-votes").forEach(f => {
-        const votes = Number(f.innerText);
-        if (votes <= -8) {
-            f.style = "color: #5e0c0c;";
-        } else if (votes < 0) {
-            f.style = "color: #ad1616;";
-        } else if (votes >= 8) {
-            f.style = "color: #0ece0e;";
-        } else if (votes > 2) {
-            f.style = "color: #16ad16;";
-        } else {
-            f.style = "color: lightblue;";
-        }
-    });
+    //Állítsd át "false"-ra, ha az alternatív színt szeretnéd és "true"-ra, ha a simát. Macskakörmök nélkül!
+    if (true) {
+        document.querySelectorAll(".total-votes").forEach(f => {
+            const votes = Number(f.innerText);
+            if (votes <= -8) {
+                f.style = "color: #5e0c0c;";
+            } else if (votes < 0) {
+                f.style = "color: #ad1616;";
+            } else if (votes >= 8) {
+                f.style = "color: #0ece0e;";
+            } else if (votes > 2) {
+                f.style = "color: #16ad16;";
+            } else {
+                f.style = "color: lightblue;";
+            }
+        });
+    } else {
+        document.querySelectorAll(".total-votes").forEach(f => {
+            const votes = Number(f.innerText);
+            if (votes <= -8) {
+                f.style = "color: #FF2828;";
+            } else if (votes < 0) {
+                f.style = "color: #FF9A00;";
+            } else if (votes >= 8) {
+                f.style = "color: #39EE29;";
+            } else if (votes > 1) {
+                f.style = "color: #69e1f3;";
+            } else {
+                f.style = "color: #CAB5A2e;"; //ez az alap volt
+            }
+        });
+    }
 }
 
 function hook() {
