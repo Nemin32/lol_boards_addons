@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         LoL Boards OP.GG Button
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  OP.GG Gomb
 // @author       Nemin
 // @match        https://boards.eune.leagueoflegends.com/hu/c/*/*
@@ -15,8 +15,7 @@
         let points_splitoff = names[name].innerText.split(" (")[0];
         let hozzmint_splitoff = points_splitoff.split("Hozzászólás, mint: ");
         let final = hozzmint_splitoff[hozzmint_splitoff.length-1];
-
-        console.log("http://eune.op.gg/summoner/userName=" + encodeURIComponent(final) + "/");
+        
         let but = document.createElement("input");
         but.type = "button";
         but.value = "OP.GG";
