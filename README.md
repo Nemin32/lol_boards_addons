@@ -29,6 +29,9 @@ Minden kommentelő mellé odaírja, hogy hány pontja van.
 ### reportbutton.user.js - Report Gomb
 Kicseréli a "Jelentés" feliratot egy szép nagy hívogató piros gombra.
 
+### endless.user.js - Végtelen görgetés
+Ha zavar, hogy folyton a tovább gombra kell nyomnod és jobban élveznéd azt, ha tekerés közben a posztok automatikusan betöltődnének, használd ezt.
+
 ### signiture.user.js - Aláírás
 Segítségével hozzáadhatsz egy aláírást a kommentjeid alá.
 
