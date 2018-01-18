@@ -2,7 +2,7 @@
 // @name         LoL Boards Endless Scrolling
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  try to take over the world!
+// @description  Automatically load new posts.
 // @author       Nemin
 // @match        https://boards.eune.leagueoflegends.com/*/*
 // @grant        none
