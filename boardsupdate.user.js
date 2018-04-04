@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         LoL Boards Redesign
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  "Kicsit sárga, kicsit savanyú... DE A MIENK!"
 // @author       Nemin
 // @match        https://boards.eune.leagueoflegends.com/*
@@ -89,7 +89,7 @@ input, textarea {border: 1px solid #195657 !important;}
     'use strict';
 
     const url = window.location.toString().split("/");
-    if (url[url.length-1].length == 2) editHeader();
+    f (url[url.length-1].length == 0) editHeader();
     setTimeout(() => {hook(); colorMods();}, 2000);
 
     addGlobalStyle(new_board_style);
