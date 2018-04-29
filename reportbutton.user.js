@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Report gomb
+// @name         LoL Boards Report Button
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  Kicseréli a Jelentés gombot egy valódi gombra.
+// @description  Replaces the "Report" text with an actual button.
 // @author       Nemin
 // @match        https://boards.eune.leagueoflegends.com/hu/c/*
 // @grant        none
