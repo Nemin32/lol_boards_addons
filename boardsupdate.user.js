@@ -89,7 +89,7 @@ input, textarea {border: 1px solid #195657 !important;}
     'use strict';
 
     const url = window.location.toString().split("/");
-    f (url[url.length-1].length == 0) editHeader();
+    if (url[url.length-1].length == 0) editHeader();
     setTimeout(() => {hook(); colorMods();}, 2000);
 
     addGlobalStyle(new_board_style);
