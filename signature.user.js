@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         LoL Boards Aláírás
+// @name         LoL Boards Signature
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  Egyszerű aláírás beillesztő.
+// @description  Let's you append signatures after your comments.
 // @author       Nemin
 // @match        https://boards.eune.leagueoflegends.com/hu/c/*/*
 // @grant    GM_getValue
