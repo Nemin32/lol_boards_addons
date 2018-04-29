@@ -44,3 +44,9 @@ Tampermonkey logo -> Dashboard -> LoL Boards UpsDowns -> Lesz egy barna sor, ami
 
 ### opgg.user.js - OP.GG Gomb
 A kommentelők mellé tesz egy gombot, melyre kattintva rögtön behozhatjuk az OP.GG-s profilukat.
+
+### blocklist.user.js - Tiltólista
+A listára fölvett emberek posztjai törlődnek a főoldalról, kommentjeik pedig automatikusan elrejtve jelennek meg.
+
+### average.user.js - Átlagos napi posztszám
+Elhelyez egy apró számlálót, mely azt mutatja átlagosan hány posztot küldesz be naponta.
