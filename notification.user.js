@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         LoL Boards Értesítő
+// @name         LoL Boards Notification
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  Értesít, ha üzeneted érkezett.
+// @description  Notifies you if you got a new message.
 // @author       Nemin
 // @match        https://*.leagueoflegends.com/hu/*
 // @exclude      https://boards.eune.leagueoflegends.com/hu/myupdates
