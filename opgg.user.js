@@ -2,7 +2,7 @@
 // @name         LoL Boards OP.GG Button
 // @namespace    http://tampermonkey.net/
 // @version      0.2
-// @description  OP.GG Gomb
+// @description  Puts an OP.GG Button next to every user.
 // @author       Nemin
 // @match        https://boards.eune.leagueoflegends.com/hu/c/*/*
 // @grant        none
