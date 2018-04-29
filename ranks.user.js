@@ -2,7 +2,7 @@
 // @name         LoL Boards Ranks
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  Pontok mutatása
+// @description  Shows you how many upvotes a user has.
 // @author       Nemin
 // @match        https://boards.eune.leagueoflegends.com/*
 // @grant        none
