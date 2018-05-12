@@ -11,6 +11,9 @@ Ezen az oldalon találhatjátok a kiegészítőim.
 
 ## Rövid leírások:
 
+### votefix.user.js - Szavazatszétválasztás
+Megjavítja a fórumos szavazatszétválasztást, hogy a főoldalon túl is működjön.
+
 ### commentpoints.user.js - Komment Pontok
 Kiírja a profil alatt a kommentek pontszámát.
 
