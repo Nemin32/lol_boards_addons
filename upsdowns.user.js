@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         LoL Boards UpsDowns
 // @namespace    http://tampermonkey.net/
-// @version      0.6
-// @description  Shows how many upvotes and downvotes a topic has
+// @version      0.7
+// @description  Shows how many upvotes and downvotes comments have.
 // @author       Nemin
-// @match        https://boards.eune.leagueoflegends.com/hu/*
+// @match        https://boards.eune.leagueoflegends.com/hu/c/*
 // @grant        none
 // ==/UserScript==
 
