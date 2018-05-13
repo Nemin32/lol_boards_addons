@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         LoL Boards Filter
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.3
 // @description  Filter out some unnecessary categories
 // @author       Nemin
 // @match        https://boards.eune.leagueoflegends.com/hu/*
@@ -20,8 +20,7 @@ const cats = [
     "Segítség és támogatás",
     "Tippek és trükkök",
     "Általános beszélgetés",
-    "Új kliens bugok",
-    "Új kliens vélemények"
+    "Hibabejelentés"
 ];
 
 function handle(cat) {
