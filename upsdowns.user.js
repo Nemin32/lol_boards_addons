@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         LoL Boards UpsDowns
 // @namespace    http://tampermonkey.net/
-// @version      0.7
-// @description  Shows how many upvotes and downvotes comments have.
+// @version      0.8
+// @description  Shows how many upvotes and downvotes comments have
 // @author       Nemin
 // @match        https://boards.eune.leagueoflegends.com/hu/c/*
 // @grant        none
@@ -26,7 +26,7 @@ function updatePoints() {
         setPoints(points[np]);
     }
     didAlready = points.length;
-    
+
     //Állítsd át "false"-ra, ha az alternatív színt szeretnéd és "true"-ra, ha a simát. Macskakörmök nélkül!
     if (true) {
         document.querySelectorAll(".total-votes").forEach(f => {
@@ -73,8 +73,10 @@ function hook() {
 (function() {
     'use strict';
 
-    setTimeout(() => {
-        updatePoints();
-        hook();
-    }, 2000);
+    if (window.location.toString().split("/").length > 6) {
+        setTimeout(() => {
+            updatePoints();
+            hook();
+        }, 2000);
+    }
 })();
