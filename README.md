@@ -51,5 +51,11 @@ A kommentelők mellé tesz egy gombot, melyre kattintva rögtön behozhatjuk az 
 ### blocklist.user.js - Tiltólista
 A listára fölvett emberek posztjai törlődnek a főoldalról, kommentjeik pedig automatikusan elrejtve jelennek meg.
 
+### newhighlight.user.js - Új komment kiemelő
+Vöröses hátteret ad az új kommenteknek, így jobban láthatóvá téve őket.
+
+### modnotif.user.js -  Moderátor kiemelő
+Egy pajzsot tesz azon posztok mellé, ahova egy admin kommentelt.
+
 ### average.user.js - Átlagos napi posztszám
 Elhelyez egy apró számlálót, mely azt mutatja átlagosan hány posztot küldesz be naponta.
