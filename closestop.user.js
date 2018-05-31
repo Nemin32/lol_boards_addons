@@ -4,7 +4,8 @@
 // @version      0.2
 // @description  Stops you from accidentaly closing the page while writing a comment
 // @author       Nemin
-// @match        https://boards.*.leagueoflegends.com/*/c/*
+// @match        https://boards.eune.leagueoflegends.com/*/c/*
+// @match        https://boards.euw.leagueoflegends.com/*/c/*
 // @grant        none
 // ==/UserScript==
 
