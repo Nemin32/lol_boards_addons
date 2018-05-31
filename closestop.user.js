@@ -8,7 +8,7 @@
 // @grant        none
 // ==/UserScript==
 
-const exit = (ev) => {ev.returnValue = "lel"; return "lel"}
+const exit = (ev) => {ev.returnValue = "Do you really want to close this page?"; return "Do you really want to close this page?"}
 
 function handle() {
     const texts = [...document.querySelectorAll(".expanding-clone")];
