@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         LoL Boards Accidental Close Stopper
 // @namespace    http://nemin32.github.io/
-// @version      0.1
+// @version      0.2
 // @description  Stops you from accidentaly closing the page while writing a comment
 // @author       Nemin
-// @match        https://boards.eune.leagueoflegends.com/*/c/*
+// @match        https://boards.*.leagueoflegends.com/*/c/*
 // @grant        none
 // ==/UserScript==
 
