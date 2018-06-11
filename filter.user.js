@@ -1,27 +1,22 @@
 // ==UserScript==
 // @name         LoL Boards Filter
 // @namespace    http://tampermonkey.net/
-// @version      0.3
+// @version      0.4
 // @description  Filter out some unnecessary categories
 // @author       Nemin
-// @match        https://boards.eune.leagueoflegends.com/hu/*
-// @grant        GM_setValue
-// @grant        GM_getValue
+// @match        https://boards.eune.leagueoflegends.com/*/*
 // ==/UserScript==
 
-const cats = [
-    "A játék állapota",
-    "Csapat- és csapattagkereső",
-    "E-sport",
-    "Hibák a magyar verzióban",
-    "Hivatalos bejelentések",
-    "Minden egyéb",
-    "Rajongói alkotások",
-    "Segítség és támogatás",
-    "Tippek és trükkök",
-    "Általános beszélgetés",
-    "Hibabejelentés"
-];
+let cats = []
+
+const button_lang = {
+    hu: "Mentés",
+    en: "Save",
+    pl: "Zapisać",
+    el: "Αποθηκεύσετε",
+    ro: "Salveaza",
+    cs: "Uložení"
+}
 
 function handle(cat) {
     let discs = document.querySelectorAll(".discussion-list-item");
@@ -39,8 +34,10 @@ function selector() {
     let container = document.createElement("div");
     container.id = "nemin_container";
     container.className = "box";
+    container.style.padding = "16px"
 
-    let vals = GM_getValue("filters", "").split(",");
+    let vals = window.localStorage.getItem("filter");
+    if (vals == null) vals = []; else vals = vals.split(",")
 
     for (let i = 0; i < cats.length; i++) {
         let cb = document.createElement("input");
@@ -61,7 +58,11 @@ function selector() {
 
     let button = document.createElement("input");
     button.type = "button";
-    button.value = "Mentés";
+    button.style.width = "120px"
+    button.style.height = "30px";
+    button.style.display = "block"
+    button.style.margin = "0 auto"
+    button.value = button_lang[window.location.toString().split("/")[3]];
 
 
     button.onclick = () => {
@@ -75,7 +76,8 @@ function selector() {
             }
         }
 
-        GM_setValue("filters", filterCat);
+        window.localStorage.setItem("filter", filterCat)
+
 
         location.reload();
     };
@@ -88,7 +90,10 @@ function selector() {
 
 function hook() {
     try {
-        document.querySelector(".show-more").addEventListener("click", (function() {setTimeout(handle, 4000, GM_getValue("filters", "").split(","));}));
+        let filter = window.localStorage.getItem("filter");
+        if (filter == null) filter = []; else filter = filter.split(",")
+
+        document.querySelector(".show-more").addEventListener("click", (function() {setTimeout(handle, 4000, filter);}));
         console.log("[Filter] Button found");
     } catch(e) {
         console.log("[Filter] Button not found.");
@@ -97,8 +102,22 @@ function hook() {
 
 (function() {
     'use strict';
-
     hook();
-    setTimeout(handle, 1000, GM_getValue("filters", "").split(","));
-    setTimeout(selector, 2000);
+
+    setTimeout(() => {
+        cats = [...document.querySelectorAll(".safe")]
+            .filter((elem) => {return elem.getAttribute('href').split("/").length == 6 && elem.getAttribute('href')
+            .search("boards\.eune\.leagueoflegends\.com") != -1})
+            .map(elem => elem.innerText)
+            .map(elem => elem.replace(/ ([\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2694-\u2697]|\uD83E[\uDD10-\uDD5D])/g, ''))
+            .map(elem => elem.replace(/(\•) /g, ""));
+
+        console.log(cats)
+
+        let filter = window.localStorage.getItem("filter");
+        if (filter == null) filter = []; else filter = filter.split(",")
+
+        setTimeout(handle, 500, filter);
+        setTimeout(selector, 1000);
+    }, 1000);
 })();
