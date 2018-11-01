@@ -1,50 +1,53 @@
 // ==UserScript==
 // @name         LoL Boards Ranks
 // @namespace    http://tampermonkey.net/
-// @version      0.1
-// @description  Shows you how many upvotes a user has.
+// @version      0.2
+// @description  Megmutatja hány pontod van a Fórumon.
 // @author       Nemin
-// @match        https://boards.eune.leagueoflegends.com/*
+// @match        https://boards.eune.leagueoflegends.com/hu/*
 // @grant        none
 // ==/UserScript==
 
-/* jshint ignore:start */
+let collected_names = {}
+let already_did = 0
 
-async function getName(name) {
-    let page = await fetch("https://boards.eune.leagueoflegends.com/hu/player/eune/" + name).then(a => a.text())
+function getPoints(name) {
+    if (collected_names[name] !== undefined) return collected_names[name]
 
-    try {
-    return page.match(/"lifetime-upvotes">\n\t\t<span class="number opaque" data-short-number="(\d+)">/)[1]
-    } catch (e) {
-    return 0
-    }
+    const link = `https://boards.eune.leagueoflegends.com/hu/player/eune/${name}`
+    return fetch(link).then(raw => raw.text()).then(resp => {
+        const parser = new DOMParser()
+        const doc = parser.parseFromString(resp, "text/html")
+
+        const span = doc.querySelector(".lifetime-upvotes span")
+        if (span === null) {
+            return "Hiba"
+        } else {
+            return span.getAttribute("data-short-number")
+        }
+    })
 }
 
-let didAlready = 0
-
-function updateNames() {
-    let names = document.querySelectorAll(".username")
-    for (let np = didAlready; np < names.length; np++) {
-        getName(names[np].innerText).then(retval => {
-            if (retval != 0) names[np].innerText += " (" + retval + ")"
-        })
-    }
-    didAlready = names.length
+async function handleUser(user) {
+    user.innerText += ` [${await getPoints(user.innerText)}]`
 }
 
-function hook() {
-    try {
-        document.querySelector(".show-more").addEventListener("click", (function() {setTimeout(updateNames, 4000)}))
-        console.log("[Rank] Button found")
-    } catch(e) {
-        console.log("[Rank] Button not found.")
-    }
+function processNames(after) {
+  let users = [...document.querySelectorAll("span.username")]
+  users.splice(0, already_did)
+  already_did = users.length
+  users.forEach(user => handleUser(user))
 }
 
 (function() {
     'use strict';
-
-    updateNames()
-    hook()
+    try {
+        document.querySelector(".show-more.box").addEventListener("click", () => {
+            setTimeout(() => {
+                processNames(already_did)
+            }, 3000)
+        })
+    } catch(e) {console.log("[RANK] No button found.")}
+    
+    processNames(0)
 })();
-/* jshint ignore:end */
