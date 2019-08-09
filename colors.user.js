@@ -14,8 +14,8 @@ function reverse(s){
 }
 
 function changeText(span, code) {
-    const start = span.selectionStart
-    const end = span.selectionEnd
+    const start = Math.min(span.selectionStart,span.selectionEnd)
+    const end = Math.max(span.selectionStart,span.selectionEnd)
 
     let firstpart = span.value.slice(0, start)
     let secondpart = span.value.slice(end, span.value.length)
