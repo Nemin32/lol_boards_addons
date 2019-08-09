@@ -77,7 +77,7 @@ function hookTXT(txt, buttons) {
     let body = document.querySelector("#body")
 
     if (body) {
-        setTimeout(hookTXT(body, document.querySelector(".rfmtoolbar .buttons")), 500)
+        setTimeout(() => {hookTXT(body, document.querySelector(".rfmtoolbar .buttons"))}, 500)
     } else {
     setInterval(() => {
         const divs = document.body.querySelectorAll(".reply")
